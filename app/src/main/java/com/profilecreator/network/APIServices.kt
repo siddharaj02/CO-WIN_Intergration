@@ -19,12 +19,12 @@ interface APIServices {
     fun saveProfile(@Body gson: JSONObject): Call<ProfileDetails>
 
     @POST("v2/auth/public/generateOTP")
-    @Headers("Content-Type: application/json; charset=utf-8")
-    fun generateOTP(@Body generateOTPRequest: JSONObject): Call<GenerateOTPResponse>
+    @Headers("Content-Type: application/json")
+    fun generateOTP(@Body generateOTPRequest: GenerateOTPRequest): Call<GenerateOTPResponse>
 
     @POST("v2/auth/public/confirmOTP")
-    @Headers("Content-Type: application/json; charset=utf-8")
-    fun confirmOTP(@Body confirmOTPRequest: JSONObject): Call<ConfirmOTPResponse>
+    @Headers("Content-Type: application/json")
+    fun confirmOTP(@Body confirmOTPRequest: ConfirmOTPRequest): Call<ConfirmOTPResponse>
 
 
     @GET("v2/registration/certificate/public/download")

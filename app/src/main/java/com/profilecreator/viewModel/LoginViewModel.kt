@@ -1,5 +1,6 @@
 package com.profilecreator.viewModel
 
+import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,6 +13,7 @@ import com.profilecreator.repository.LoginRepository
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
+    val OTP_ERROR= "Error, please get new OTP"
     private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
 
@@ -30,7 +32,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
                 success = result.data?.txnId?.let { SuccessMessageView(successMessage = it) }
             )
         } else {
-            _otpResult.value = Response(error = R.string.generate_otp_failed)
+            _otpResult.value = Response(error = Resources.getSystem().getString(R.string.generate_otp_failed))
         }
     }
 
@@ -43,7 +45,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
                 success = result.data?.token?.let { SuccessMessageView(successMessage = it) }
             )
         } else {
-            _confirmOtpResult.value = Response(error = R.string.otp_failed)
+            _confirmOtpResult.value = Response(error = Resources.getSystem().getString(R.string.otp_failed))
         }
     }
 
@@ -55,8 +57,21 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
         }
     }
 
+    fun otpDataChanged(otp: String) {
+        if (!isOTPLengthValid(otp)) {
+            _loginForm.value = LoginFormState(otpError = R.string.invalid_otp_length)
+        }  else {
+            _loginForm.value = LoginFormState(isOTPLengthValid = true)
+        }
+    }
+
     // A placeholder mobile number validation check
     private fun isMobileNumberValid(mobileNumber: String): Boolean {
         return mobileNumber.length == 10
+    }
+
+    // A placeholder otp validation check
+    private fun isOTPLengthValid(mobile: String): Boolean {
+        return mobile.length == 6
     }
 }

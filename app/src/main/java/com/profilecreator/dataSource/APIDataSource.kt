@@ -13,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
 import java.util.concurrent.TimeUnit
 
+
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
@@ -30,7 +31,7 @@ class APIDataSource {
         return Retrofit.Builder()
             .baseUrl(APIServices.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
-            //.client(okHttpClient())
+            .client(okHttpClient())
             .build()
     }
     private fun okHttpClient(): OkHttpClient {

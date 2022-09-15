@@ -5,5 +5,5 @@ package com.profilecreator.dataSource
  */
 data class Response(
     val success: SuccessMessageView? = null,
-    val error: Int? = null
+    val error: String? = null
 )
