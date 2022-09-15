@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.EducationDetailsFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+
+        <EditText
+            android:id="@+id/companyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/Company_name"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/designation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/designation"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintTop_toBottomOf="@+id/companyName"/>
+
+        <EditText
+            android:id="@+id/experience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/experience"
+            android:inputType="text"
+            android:maxLines="1"
+            app:layout_constraintTop_toBottomOf="@+id/designation"/>
+
+        <EditText
+            android:id="@+id/Awards_and_recognitions"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:hint="@string/Awards_and_recognitions"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:maxLines="50"
+            app:layout_constraintTop_toBottomOf="@+id/experience"/>
+
+
+        <Button
+            android:id="@+id/Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="20dp"
+            android:text="@string/Submit"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/selector_btn_login"
+            android:elevation="5dp"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/Awards_and_recognitions"/>
+
+        <Button
+            android:id="@+id/NEXT"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="20dp"
+            android:text="@string/Next"
+            android:background="@drawable/selector_btn_login"
+            android:elevation="5dp"
+            android:padding="10dp"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@+id/Awards_and_recognitions"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
