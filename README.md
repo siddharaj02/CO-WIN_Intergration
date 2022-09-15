@@ -1,6 +1,6 @@
 # CO-WIN public API Integration and Profile Creator
 
-#CO-WIN public API Integration:
+# CO-WIN public API Integration:
 
 CO-WIN Indian government public APIs are used for COVID-19 vaccination.
 It helps to book slot for vaccination, download vaccine certificate so that it can be validated during flight booking or entering into any public premises where vaccine certificate is mandatory
@@ -8,7 +8,7 @@ for example bank or sports ground.
 
 link for public APIs: https://apisetu.gov.in/api/cowin/cowin-public-v2#/
 
-#Profile builder: 
+# Profile builder: 
 
 Profile builder android app using MVVM design pattern with android architecture components i.e Jatpack and written in Kotlin.
 Jetpack components used are: ViewModel, Navigation, LiveData, MediatorLiveData etc.
