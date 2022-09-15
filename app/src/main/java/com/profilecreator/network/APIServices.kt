@@ -1,9 +1,6 @@
 package com.profilecreator.network
 
-import com.profilecreator.model.ConfirmOTPResponse
-import com.profilecreator.model.GenerateOTPResponse
-import com.profilecreator.model.ProfileDetails
-import com.profilecreator.model.User
+import com.profilecreator.model.*
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.*
@@ -28,6 +25,11 @@ interface APIServices {
     @POST("v2/auth/public/confirmOTP")
     @Headers("Content-Type: application/json; charset=utf-8")
     fun confirmOTP(@Body confirmOTPRequest: JSONObject): Call<ConfirmOTPResponse>
+
+
+    @GET("v2/registration/certificate/public/download")
+    fun downloadCertificate(@Body downloadRequest: JSONObject): Call<DownloadCertificateResponse>
+
 
     companion object {
         val BASE_URL = "https://cdn-api.co-vin.in/api/"
