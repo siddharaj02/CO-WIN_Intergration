@@ -33,15 +33,11 @@ class LoginRepository (private val apiDataSource: APIDataSource) {
                 }
 
                 override fun onResponse(call: Call<GenerateOTPResponse>, response: Response<GenerateOTPResponse>) {
-                    if(response.isSuccessful) {
                         response.body().also {
                             if (it != null) {
                                 generateOTPResponse = it
                             }
                         }
-                    } else {
-
-                    }
                 }
             })
 
@@ -66,13 +62,11 @@ class LoginRepository (private val apiDataSource: APIDataSource) {
                 }
 
                 override fun onResponse(call: Call<ConfirmOTPResponse>, response: Response<ConfirmOTPResponse>) {
-                    if(response.isSuccessful) {
                         response.body().also {
                             if (it != null) {
                                 confirmOTPResponse = it
                             }
                         }
-                    }
                 }
             })
 
